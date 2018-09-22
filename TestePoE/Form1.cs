@@ -144,7 +144,6 @@ namespace TestePoE
 
         private void RunTrader()
         {
-            // ReSharper disable once NotAccessedVariable
             var iteration = 0;
 
             var id = PublicStashAPI.GetLatestStashIdAsync().Result;
@@ -173,14 +172,18 @@ namespace TestePoE
                                     if (target[index].PricePerUnit > ave)
                                     {
                                         var totalBuyValue = target[index].PricePerUnit * target[index].Selling.Stock;
-                                        var totalSellValue = getDbAverage(target[index].Selling.Currency, target[index].Buying.Currency) * target[index].Selling.Stock;
+                                        var dbAve = getDbAverage(target[index].Selling.Currency, target[index].Buying.Currency);
+                                        var totalSellValue = dbAve * target[index].Selling.Stock;
                                         if (totalBuyValue < totalSellValue)
                                         {
-                                            richTextBox1.Invoke((MethodInvoker)delegate
+                                            if (Math.Round(totalBuyValue) > 0)
                                             {
-                                                //@Name Hi, I'd like to buy your 50 chaos for my 97 regret in Delve.
-                                                richTextBox1.AppendText("@" + target[index].Seller.LastKnownCharacter + " Hi, I'd like to buy your " + target[index].Buying.Currency.Value() + " for my " + target[index].PricePerUnit + " " + target[index].Selling.Currency.Value() + " per unit, Stock: " + target[index].Selling.Stock + ", Profit: "  + (totalSellValue - totalBuyValue) + Environment.NewLine);
-                                            });
+                                                richTextBox1.Invoke((MethodInvoker)delegate
+                                                {
+                                                    //@Name Hi, I'd like to buy your 50 chaos for my 97 regret in Delve.
+                                                    richTextBox1.AppendText("@" + target[index].Seller.LastKnownCharacter + " Hi, I'd like to buy your " + target[index].Selling.Stock + " " + target[index].Buying.Currency.Value() + " for my " + Math.Round(totalBuyValue) + " " + target[index].Selling.Currency.Value() + " (" + target[index].PricePerUnit + " per unit), Profit: " + Math.Round(totalSellValue - totalBuyValue) + " " + target[index].Selling.Currency.Value() + " selling at " + dbAve + " per unit" + Environment.NewLine);
+                                                });
+                                            }
                                         }
                                     }      
                                 }
@@ -252,7 +255,7 @@ namespace TestePoE
             decimal[] AveragePriceArray = AveragePrice.ToArray();
             if (AveragePriceArray.Length > 0)
             {
-                AveragePrice.RemoveAll(it => it > (Average(AveragePriceArray)));
+                AveragePrice.RemoveAll(it => it > (Average(AveragePriceArray) + AveragePrice.StandardDeviation()) && it > (Average(AveragePriceArray) - AveragePrice.StandardDeviation()));
                 AveragePriceArray = AveragePrice.ToArray();
                 return Average(AveragePriceArray);
             }
@@ -264,6 +267,8 @@ namespace TestePoE
 
         private void button1_Click(object sender, EventArgs e)
         {
+            label1.Text = "Searching";
+            button1.Enabled = false;
             backgroundWorker2.RunWorkerAsync();
         }
 
