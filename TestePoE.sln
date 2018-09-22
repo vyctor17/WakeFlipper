@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2003
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestePoE", "TestePoE\TestePoE.csproj", "{0CC9D2B1-CAC8-426D-984D-099F4DF06E22}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0CC9D2B1-CAC8-426D-984D-099F4DF06E22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CC9D2B1-CAC8-426D-984D-099F4DF06E22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CC9D2B1-CAC8-426D-984D-099F4DF06E22}.Debug|x64.ActiveCfg = Debug|x64
+		{0CC9D2B1-CAC8-426D-984D-099F4DF06E22}.Debug|x64.Build.0 = Debug|x64
+		{0CC9D2B1-CAC8-426D-984D-099F4DF06E22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CC9D2B1-CAC8-426D-984D-099F4DF06E22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CC9D2B1-CAC8-426D-984D-099F4DF06E22}.Release|x64.ActiveCfg = Release|x64
+		{0CC9D2B1-CAC8-426D-984D-099F4DF06E22}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A13DABFB-3D55-419A-89E7-5331BC546F25}
+	EndGlobalSection
+EndGlobal

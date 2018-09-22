@@ -1,0 +1,16 @@
+C:\Users\victo\source\repos\TestePoE\TestePoE\bin\Debug\TestePoE.exe.config
+C:\Users\victo\source\repos\TestePoE\TestePoE\bin\Debug\TestePoE.exe
+C:\Users\victo\source\repos\TestePoE\TestePoE\bin\Debug\TestePoE.pdb
+C:\Users\victo\source\repos\TestePoE\TestePoE\bin\Debug\Newtonsoft.Json.dll
+C:\Users\victo\source\repos\TestePoE\TestePoE\bin\Debug\PathOfExile.exe
+C:\Users\victo\source\repos\TestePoE\TestePoE\bin\Debug\System.ValueTuple.dll
+C:\Users\victo\source\repos\TestePoE\TestePoE\bin\Debug\Newtonsoft.Json.xml
+C:\Users\victo\source\repos\TestePoE\TestePoE\bin\Debug\System.ValueTuple.xml
+C:\Users\victo\source\repos\TestePoE\TestePoE\obj\Debug\TestePoE.csprojAssemblyReference.cache
+C:\Users\victo\source\repos\TestePoE\TestePoE\obj\Debug\TestePoE.Form1.resources
+C:\Users\victo\source\repos\TestePoE\TestePoE\obj\Debug\TestePoE.Properties.Resources.resources
+C:\Users\victo\source\repos\TestePoE\TestePoE\obj\Debug\TestePoE.csproj.GenerateResource.cache
+C:\Users\victo\source\repos\TestePoE\TestePoE\obj\Debug\TestePoE.csproj.CoreCompileInputs.cache
+C:\Users\victo\source\repos\TestePoE\TestePoE\obj\Debug\TestePoE.csproj.CopyComplete
+C:\Users\victo\source\repos\TestePoE\TestePoE\obj\Debug\TestePoE.exe
+C:\Users\victo\source\repos\TestePoE\TestePoE\obj\Debug\TestePoE.pdb
