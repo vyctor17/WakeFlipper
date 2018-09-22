@@ -14,3 +14,4 @@ C:\Users\victo\source\repos\TestePoE\TestePoE\obj\Debug\TestePoE.csproj.CoreComp
 C:\Users\victo\source\repos\TestePoE\TestePoE\obj\Debug\TestePoE.csproj.CopyComplete
 C:\Users\victo\source\repos\TestePoE\TestePoE\obj\Debug\TestePoE.exe
 C:\Users\victo\source\repos\TestePoE\TestePoE\obj\Debug\TestePoE.pdb
+C:\Users\victo\source\repos\TestePoE\TestePoE\obj\Debug\TestePoE.csprojResolveAssemblyReference.cache

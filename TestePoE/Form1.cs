@@ -167,23 +167,22 @@ namespace TestePoE
                         {
                             if (target[index].Selling.Currency != Currency.MISSING_TYPE && target[index].Buying.Currency != Currency.MISSING_TYPE)
                             {
-                                using (var db = new LiteDatabase("MyData.db"))
+                                var ave = getDbAverage(target[index].Buying.Currency, target[index].Selling.Currency);
+                                if (target[index].PricePerUnit > 0 && ave > 0)
                                 {
-                                    var orders = db.GetCollection<CurrencyDb>("currency");
-                                    if (target[index].PricePerUnit > 0)
+                                    if (target[index].PricePerUnit > ave)
                                     {
-                                        var query = orders.Find(x => x.Buy == target[index].Buying.Currency.Value() && x.Sell == target[index].Selling.Currency.Value());
-                                        foreach (var order in query)
+                                        var totalBuyValue = target[index].PricePerUnit * target[index].Selling.Stock;
+                                        var totalSellValue = getDbAverage(target[index].Selling.Currency, target[index].Buying.Currency) * target[index].Selling.Stock;
+                                        if (totalBuyValue < totalSellValue)
                                         {
-                                            if (target[index].PricePerUnit > order.Average)
+                                            richTextBox1.Invoke((MethodInvoker)delegate
                                             {
-                                                richTextBox1.Invoke((MethodInvoker)delegate
-                                                {
-                                                    richTextBox1.AppendText(target[index].Seller.LastKnownCharacter + ", Buy: " + target[index].Buying.Currency.Value() + ", Sell: " + target[index].Selling.Currency.Value() + ", Value: " + target[index].PricePerUnit + Environment.NewLine);
-                                                });
-                                            }
+                                                //@Name Hi, I'd like to buy your 50 chaos for my 97 regret in Delve.
+                                                richTextBox1.AppendText("@" + target[index].Seller.LastKnownCharacter + " Hi, I'd like to buy your " + target[index].Buying.Currency.Value() + " for my " + target[index].PricePerUnit + " " + target[index].Selling.Currency.Value() + " per unit, Stock: " + target[index].Selling.Stock + ", Profit: "  + (totalSellValue - totalBuyValue) + Environment.NewLine);
+                                            });
                                         }
-                                    }
+                                    }      
                                 }
                             }
                         }
@@ -198,6 +197,21 @@ namespace TestePoE
                     Thread.Sleep(5000);
                 }
             }
+        }
+
+        public static decimal getDbAverage(Currency currencyBuying, Currency currencySelling)
+        {
+            decimal ave = 0;
+            using (var db = new LiteDatabase("MyData.db"))
+            {
+                var orders = db.GetCollection<CurrencyDb>("currency");
+                var query = orders.Find(x => x.Buy == currencyBuying.Value() && x.Sell == currencySelling.Value());
+                foreach (var order in query)
+                {
+                    ave = order.Average;
+                }
+            }
+            return ave;
         }
 
         public static decimal Sum(params decimal[] value)
